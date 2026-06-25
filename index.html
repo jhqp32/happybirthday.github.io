@@ -2126,9 +2126,8 @@
             }
         }
 
-        /* ===== QR-код и ЧЕК-ЛИСТ ===== */
-        .qr-section,
-        .checklist-section {
+        /* ===== QR-код ===== */
+        .qr-section {
             background: var(--bg-2);
             border-top: 1px solid var(--line);
             border-bottom: 1px solid var(--line);
@@ -2154,53 +2153,6 @@
             font-size: 18px;
             color: var(--ink-dim);
             letter-spacing: 0.06em;
-        }
-
-        .checklist-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .checklist-item {
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            padding: 12px 18px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: border-color 0.3s, background 0.3s;
-            cursor: pointer;
-        }
-        .checklist-item:hover {
-            border-color: var(--fire);
-        }
-        .checklist-item input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            accent-color: var(--fire);
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-        .checklist-item label {
-            font-family: 'Anton', sans-serif;
-            font-size: 18px;
-            color: var(--ink);
-            cursor: pointer;
-            flex: 1;
-            letter-spacing: 0.02em;
-            transition: color 0.3s;
-        }
-        .checklist-item.checked label {
-            color: var(--ink-dim);
-            text-decoration: line-through;
-        }
-        @media (max-width: 600px) {
-            .checklist-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         /* ===== FOOTER ===== */
@@ -2393,13 +2345,12 @@
     <!-- КНОПКА "НАВЕРХ" -->
     <button class="btn-up" id="btnUp" aria-label="Наверх">↑</button>
 
-    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ФОТО (слайдер) -->
+    <!-- МОДАЛЬНЫЕ ОКНА -->
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="modalImg" src="" alt="полноразмерное фото" />
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ИНФОРМАЦИИ О ГОСТЕ -->
     <div id="guestModal" class="modal guest-modal">
         <div class="modal-content">
             <span class="close" id="guestModalClose">&times;</span>
@@ -2409,7 +2360,6 @@
         </div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ПРЕДСКАЗАНИЙ -->
     <div id="predictionModal" class="modal prediction-modal">
         <div class="modal-content">
             <span class="close" id="predClose">&times;</span>
@@ -2419,7 +2369,6 @@
         </div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ОТМАЗОК И ТОСТОВ -->
     <div id="miniModal" class="modal mini-modal">
         <div class="modal-content">
             <span class="close" id="miniClose">&times;</span>
@@ -2432,7 +2381,7 @@
     <!-- MARQUEE -->
     <div class="marquee">
         <div class="marquee-track">
-            <span>🔥 5 ИЮЛЯ · ПЛЯЖ · ШАТЁР · ШАШЛЫК · 🎤 СЕКРЕТНЫЙ ГОСТЬ 🔥 5 ИЮЛЯ · ПЛЯЖ · ШАТЁР · ШАШЛЫК · 🎤 СЕКРЕТНЫЙ ГОСТЬ 🔥 5 ИЮЛЯ · ПЛЯЖ · ШАТЁР · ШАШЛЫК · 🎤 СЕКРЕТНЫЙ ГОСТЬ 🔥 5 ИЮЛЯ · ПЛЯЖ · ШАТЁР · ШАШЛЫК · 🎤 СЕКРЕТНЫЙ ГОСТЬ</span>
+            <span>🔥 5 ИЮЛЯ · ДОМ · ШАШЛЫК · 🎤 СЕКРЕТНЫЙ ГОСТЬ 🔥 5 ИЮЛЯ · ДОМ · ШАШЛЫК · 🎤 СЕКРЕТНЫЙ ГОСТЬ 🔥 5 ИЮЛЯ · ДОМ · ШАШЛЫК · 🎤 СЕКРЕТНЫЙ ГОСТЬ 🔥 5 ИЮЛЯ · ДОМ · ШАШЛЫК · 🎤 СЕКРЕТНЫЙ ГОСТЬ</span>
         </div>
     </div>
 
@@ -2442,11 +2391,11 @@
         <div class="hero-content">
             <span class="eyebrow">ДЕНЬ РОЖДЕНИЯ · 5 ИЮЛЯ</span>
             <div class="neon-sign">HAPPY BIRTHDAY, РОМА!</div>
-            <h1>ГОРИМ<br />НА <span class="flame">ПЛЯЖЕ</span></h1>
-            <p class="sub">Шатёр, мясо на углях и вся банда в сборе. <strong>Время начала уточняется</strong> — финальный созыв будет отдельно.</p>
+            <h1>ГОРИМ<br />НА <span class="flame">ХАТЕ</span></h1>
+            <p class="sub">Дом, мясо на углях и вся банда в сборе. <strong>Время начала уточняется</strong> — финальный созыв будет отдельно.</p>
             <div class="hero-badges">
                 <div class="badge"><b>05.07</b> · дата</div>
-                <div class="badge"><b>ПЛЯЖ</b> · место</div>
+                <div class="badge"><b>ДОМ</b> · место</div>
                 <div class="badge"><b id="badgeCount">14</b> · своих в списке</div>
                 <div class="badge"><b>???</b> · секретный гость</div>
             </div>
@@ -2454,7 +2403,7 @@
         </div>
     </section>
 
-    <!-- ТАЙМЕР С БЕЛЫМ СВЕЧЕНИЕМ И ЗАГОЛОВКОМ ПОМЕНЬШЕ -->
+    <!-- ТАЙМЕР -->
     <section class="countdown-section">
         <div class="white-glow"></div>
         <div class="wrap" style="padding: 10px 0;">
@@ -2480,7 +2429,7 @@
         </div>
     </section>
 
-    <!-- АНИМИРОВАННАЯ СТАТИСТИКА -->
+    <!-- СТАТИСТИКА -->
     <section class="stats-section">
         <div class="wrap tight" style="padding: 40px 24px;">
             <div class="stats-grid reveal" id="statsGrid">
@@ -2514,8 +2463,8 @@
             <div class="tl-item">
                 <div class="tl-dot"></div>
                 <div class="tl-time">Время уточняется</div>
-                <div class="tl-title">Сбор у шатра</div>
-                <div class="tl-desc">Приходим на пляж, занимаем шатёр, разгружаемся. Никаких опозданий — стартуем дружно.</div>
+                <div class="tl-title">Сбор у дома</div>
+                <div class="tl-desc">Приходим, занимаем дом, разгружаемся. Никаких опозданий — стартуем дружно.</div>
             </div>
             <div class="tl-item">
                 <div class="tl-dot"></div>
@@ -2599,7 +2548,7 @@
             <div class="secret-info">
                 <div class="secret-tag">Live-выступление</div>
                 <div class="secret-title">Кто это — узнаете только на месте</div>
-                <div class="secret-desc">В этом году выступит гость, имя которого мы не анонсируем заранее. Но мы оставили несколько намёков прямо здесь, за рамкой – приглядитесь! Будьте на пляже, когда движ разгорится – пропустить такое нельзя.</div>
+                <div class="secret-desc">В этом году выступит гость, имя которого мы не анонсируем заранее. Но мы оставили несколько намёков прямо здесь, за рамкой – приглядитесь! Будьте в ожидании, когда движ разгорится – пропустить такое нельзя.</div>
             </div>
         </div>
         <div style="text-align:center; margin-top:10px; font-size:14px; color:var(--ink-dim); font-family:'Anton',sans-serif; position:relative; z-index:2;">
@@ -2624,13 +2573,13 @@
                 <div class="detail-card">
                     <div class="detail-icon">📍</div>
                     <div class="label">Место</div>
-                    <div class="value">ПЛЯЖ</div>
-                    <div class="note">Прямо у воды. Закат, шатёр и вся компания в сборе.</div>
+                    <div class="value">ДОМ</div>
+                    <div class="note">Закат, дом и вся компания в сборе.</div>
                 </div>
                 <div class="detail-card">
                     <div class="detail-icon">🔥</div>
                     <div class="label">Программа</div>
-                    <div class="value">ШАТЁР + ШАШЛЫК + ПИВО И НЕ ТОЛЬКО</div>
+                    <div class="value">ДОМ + ШАШЛЫК + ПИВО И НЕ ТОЛЬКО</div>
                     <div class="note">Мясо на огне, музыка на полную, кайф.</div>
                 </div>
             </div>
@@ -2646,7 +2595,7 @@
         </div>
     </section>
 
-    <!-- ===== ГЕНЕРАТОРЫ, СЧЁТЧИК ТРЕЗВОСТИ, FAQ ===== -->
+    <!-- ГЕНЕРАТОРЫ, СЧЁТЧИК ТРЕЗВОСТИ, FAQ -->
     <section class="fun-section">
         <div class="wrap tight">
             <div class="section-head center reveal">
@@ -2655,14 +2604,12 @@
             </div>
 
             <div class="fun-grid">
-                <!-- Генератор отмазок -->
                 <div class="fun-card">
                     <h3>🙈 Генератор отмазок</h3>
                     <p>Не можешь прийти? Нажми кнопку – получи забавный повод для отсутствия.</p>
                     <button class="btn-fun" id="excuseBtn">🚫 Не могу прийти</button>
                     <div class="fun-result" id="excuseResult"></div>
                 </div>
-                <!-- Генератор тостов -->
                 <div class="fun-card">
                     <h3>🥂 Генератор тостов</h3>
                     <p>Если не знаешь, что сказать – доверься случаю и скажи это!</p>
@@ -2671,7 +2618,6 @@
                 </div>
             </div>
 
-            <!-- Счётчик трезвости -->
             <div class="sober-meter">
                 <div class="meter-label">🍺 Счётчик трезвости вечеринки</div>
                 <div class="meter-bar">
@@ -2693,7 +2639,7 @@
         </div>
     </section>
 
-    <!-- ===== ГОСТЕВАЯ КНИГА (с колонками и фильтром мата) ===== -->
+    <!-- ГОСТЕВАЯ КНИГА -->
     <section class="guestbook-section">
         <div class="wrap tight">
             <div class="section-head center reveal">
@@ -2728,17 +2674,6 @@
                 <div id="qrcode"></div>
                 <div class="qr-label">Отсканируй, чтобы открыть страницу на телефоне</div>
             </div>
-        </div>
-    </section>
-
-    <!-- ЧЕК-ЛИСТ -->
-    <section class="checklist-section">
-        <div class="wrap tight">
-            <div class="section-head center reveal">
-                <span class="eyebrow">организация</span>
-                <h2>Что я возьму <span class="flame">с собой</span></h2>
-            </div>
-            <div class="checklist-grid" id="checklistGrid"></div>
         </div>
     </section>
 
@@ -3344,7 +3279,7 @@
             if (navigator.share) {
                 navigator.share({
                     title: 'День рождения 5 июля!',
-                    text: 'Я иду на пляжную тусу! Присоединяйся! 🔥',
+                    text: 'Я иду на днюху! Присоединяйся! 🔥',
                     url: url
                 }).catch(() => {});
             } else {
@@ -3561,49 +3496,8 @@
         }
 
         // ============================================================
-        // 23. ЧЕК-ЛИСТ
+        // 23. УДАЛЯЕМ ЧЕК-ЛИСТ – соответствующий функционал больше не используется
         // ============================================================
-        const checklistItems = [
-            "Шампуры", "Мясо (курица, свинина)", "Овощи для шашлыка",
-            "Хлеб / лаваш", "Соусы и специи", "Пледы / покрывала",
-            "Портативная колонка", "Напитки (вода, сок, пиво)",
-            "Одноразовая посуда", "Влажные салфетки", "Мусорные пакеты",
-            "Зажигалка / спички"
-        ];
-        const checklistGrid = document.getElementById('checklistGrid');
-        const savedChecklist = JSON.parse(localStorage.getItem('checklist')) || {};
-
-        function renderChecklist() {
-            checklistGrid.innerHTML = '';
-            checklistItems.forEach(item => {
-                const div = document.createElement('div');
-                div.className = 'checklist-item';
-                const checked = savedChecklist[item] || false;
-                if (checked) div.classList.add('checked');
-                const checkbox = document.createElement('input');
-                checkbox.type = 'checkbox';
-                checkbox.checked = checked;
-                checkbox.addEventListener('change', function(e) {
-                    e.stopPropagation();
-                    savedChecklist[item] = this.checked;
-                    localStorage.setItem('checklist', JSON.stringify(savedChecklist));
-                    div.classList.toggle('checked', this.checked);
-                });
-                const label = document.createElement('label');
-                label.textContent = item;
-                div.appendChild(checkbox);
-                div.appendChild(label);
-                div.addEventListener('click', function(e) {
-                    if (e.target.tagName !== 'INPUT') {
-                        const cb = this.querySelector('input[type="checkbox"]');
-                        cb.checked = !cb.checked;
-                        cb.dispatchEvent(new Event('change'));
-                    }
-                });
-                checklistGrid.appendChild(div);
-            });
-        }
-        renderChecklist();
 
         // ============================================================
         // 24. АНИМИРОВАННЫЕ ЧАСЫ
@@ -3703,10 +3597,10 @@
             meterFill.style.width = percent + '%';
             const statuses = [
                 { max: 0, text: '🍾 Всё, пора спать...' },
-                { max: 20, text: '🧊 Почти трезво' },
-                { max: 40, text: '😌 Лёгкий нагрев' },
+                { max: 20, text: '🧊 Уже хорошо' },
+                { max: 40, text: '😌 Нагревчик' },
                 { max: 60, text: '🍻 Пошло веселье!' },
-                { max: 80, text: '🔥 Жарко, как на пляже!' },
+                { max: 80, text: '🔥 Жарко, как на хате!' },
                 { max: 95, text: '🎉 Полный отрыв!' },
                 { max: 100, text: '💯 На старте!' }
             ];
@@ -3720,7 +3614,7 @@
         // 27. FAQ
         // ============================================================
         const faqData = [
-            { q: 'Где именно будет проходить вечеринка?', a: 'На пляже, точное место уточняйте у организатора. Будет шатёр и зона для костра.' },
+            { q: 'Где именно будет проходить вечеринка?', a: 'На дому, точное место уточняйте у организатора. Будет дом и все что надо.' },
             { q: 'Что нужно брать с собой?', a: 'Хорошее настроение, удобную одежду, плед (если холодно). Всё остальное (еда, напитки, посуда) будет на месте – смотрите чек-лист.' },
             { q: 'Можно ли привести с собой друзей?', a: 'Конечно! Главное – предупредить организатора, чтобы всё учесть.' },
             { q: 'Будет ли музыка?', a: 'Да, будет колонка, а также живое выступление секретного гостя!' },
@@ -3759,7 +3653,6 @@
         const API_KEY = '$2a$10$WZvqaSxYQ5D3kWVWmqPYn.YgJVAcMZISw4ev1Hsmv7ekOEGvFN.He';
         const API_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
-        // Список запрещённых слов (маты, оскорбления) – можно дополнять
         const badWords = [
             'бля', 'блять', 'хуй', 'хуя', 'пизд', 'пизда', 'пиздец',
             'ебал', 'ебать', 'ебли', 'заеб', 'нахуй', 'похуй',
@@ -3769,7 +3662,6 @@
             'пидорас', 'хуесос', 'чмо', 'лох', 'гандон', 'гондон', 'шлюха', 'залупа'
         ];
 
-        // Функция проверки на запрещённые слова
         function containsBadWord(text) {
             const clean = text.toLowerCase().replace(/[^а-яёa-z0-9]/g, ' ');
             const words = clean.split(/\s+/);
@@ -3828,7 +3720,6 @@
         }
 
         async function addMessage(name, text) {
-            // Проверка на мат в имени и тексте
             if (containsBadWord(name) || containsBadWord(text)) {
                 alert('Имя или сообщение содержат запрещённые слова. Пожалуйста, отредактируйте.');
                 return;
@@ -3838,13 +3729,12 @@
                 return;
             }
 
-            // === ОГРАНИЧЕНИЕ: 1 СООБЩЕНИЕ В 15 МИНУТ ===
             const lastTimeKey = 'lastMessageTime_' + sessionId;
             const lastTime = localStorage.getItem(lastTimeKey);
             const now = Date.now();
             if (lastTime) {
                 const diff = now - parseInt(lastTime);
-                const fifteenMinutes = 15 * 60 * 1000; // 15 минут в миллисекундах
+                const fifteenMinutes = 15 * 60 * 1000;
                 if (diff < fifteenMinutes) {
                     const remainingSeconds = Math.ceil((fifteenMinutes - diff) / 1000);
                     const minutes = Math.floor(remainingSeconds / 60);
@@ -3853,7 +3743,6 @@
                     return;
                 }
             }
-            // ========================================
 
             const newMsg = {
                 id: Date.now().toString(36) + Math.random().toString(36).substr(2, 5),
@@ -3867,7 +3756,6 @@
             messages.push(newMsg);
             await saveMessages();
 
-            // Сохраняем время отправки
             localStorage.setItem(lastTimeKey, String(now));
 
             renderMessages(currentFilter);
@@ -4012,7 +3900,7 @@
             loadMessages();
         });
 
-        console.log('📖 Гостевая книга с фильтром мата (включая имя), колонками и ограничением 1 сообщение/15 минут загружена!');
+        console.log('📖 Гостевая книга с фильтром мата, колонками и ограничением 1 сообщение/15 минут загружена!');
         console.log('🔥 ДЕНЬ РОЖДЕНИЯ — 5 ИЮЛЯ! Все фишки активированы!');
     </script>
 </body>
